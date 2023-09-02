@@ -1,79 +1,16 @@
-# 链表中双指针技巧
+# Reverse A Linked List
 
-## 双指针分类
+# Overview
 
-1. 快慢指针，定义fast, slow指针
-2. 左右指针
+Normally, we use two pointers to reverse a linked list by changing nodes reference. In this article we are going to talk about
 
-## 单链表双指针基本技巧
+1. reverse a linked list with iteration approach (two pointers method)
+2. reverse a linked list with recursion approach.
+3. reverse top k nodes in a linked list.
+4. reverse an interval in a linked list.
+5. reverse nodes of group k in a linked list.
 
-1. 合并两个有序链表 （普通双指针）
-2. 合并k个有序链表 （普通双指针）
-3. 单链表的翻转 （普通双指针）
-4. 寻找单链表中点 （快慢指针）
-5. 寻找单链表中倒数第k个节点 （快慢指针）
-6. 判断单链表是否成环并找出环的起点 （快慢指针）
-7. 判断两个单链表是否相交并找出交点 （普通指针）
-
-## 例题
-
-1. [Merge Two Sorted List](https://leetcode.com/problems/merge-two-sorted-lists/)
-    
-    双指针技巧 + 虚拟节点。通过对比两个指针节点的数值，将小的节点链接在虚拟节点之后。
-    
-2. [Partition List](https://leetcode.com/problems/partition-list/)
-    1. Link all nodes whose values are smaller than x to small dummy
-    2. Link all nodes whose values are greater or equal to x to large dummy
-    3. Link small and large
-3. [Merge k Sorted Lists](https://leetcode.com/problems/merge-k-sorted-lists/)
-    
-    Goal is to find the smallest node among all current node heads.
-    
-    - naive approach: make k pointers and compare current k node heads, then link the smallest node to dummy. Time complexity for reach comparison is O(k). Total time complexity is more than O(k^N). Bad!
-    - optimal approach: since our goal is to find the smallest node, we can have a priority queue to help us.
-        1. initially, we put all heads into PQ.
-        2. while the PQ is not empty, poll the smallest element from the PQ, and link it to dummy. worst case time complexity is O(N * log k)
-4. [Remove Nth Node From End of List](https://leetcode.com/problems/remove-nth-node-from-end-of-list/)
-    
-    Goal is to find the prev node of the target. Two pass or one pass both work.
-    
-5. [Linked List Cycle](https://leetcode.com/problems/linked-list-cycle/)
-    
-    Use two pointers, fast and slow. If cycle exists, fast will catch slow in the cycle, otherwise, they will never meet.
-    
-6. [Linked List Cycle II](https://leetcode.com/problems/linked-list-cycle-ii/)
-    
-    Use tow pointers to find the point where they meet in the cycle.
-    
-    Assume that slow moves s steps when arriving the meeting point, then the fast moves 2s. The difference s steps is k times cycle.
-    
-    Assume that distance from the start point to meeting point is m, then the distance from the meeting point is s-m, which is same with the distance from head to the start point.
-    
-    When two pointer meet in the cycle, set the fast back to head and move fast and slow one step until they meet.
-    
-    The meeting point is the start point in the cycle.
-    
-7. [Find the Duplicate Number](https://leetcode.com/problems/find-the-duplicate-number/description/)
-    
-    Similar with cycle detection in linked list.
-    
-    We use two pointers in linked list to detect a cycle. Similarly in arrays.
-    
-    We define slow and fast.
-    
-    slow = nums[slow], fast = nums[nums[fast]]
-    
-    When there is a cycle in array with n + 1 numbers in range [1, n], the duplicated number is the cycle entry.
-    
-    We find the cycle when slow and fast meet.
-    
-8. [Intersection of Two Linked Lists](https://leetcode.com/problems/intersection-of-two-linked-lists/)
-
-## 更多练习 https://leetcode.com/tag/linked-list/
-
-# 单链表的翻转
-
-## 翻转整个链表
+# 翻转整个链表
 
 翻转整个链表比较常用的方法为
 
@@ -133,7 +70,7 @@
     ```
     
 
-## 翻转单链表的前k个节点
+# 翻转单链表的前k个节点
 
 假如，我们知道单链表的节点数 size, 那么翻转整个单链表就相当于翻转前size个节点。函数可以定义为 ListNode reverse(ListNode head, int k)； 其中 k = size。当 k 等于 1 的时候，就是递归结束条件，可以理解为，只有一个节点需要翻转。
 
@@ -162,11 +99,11 @@ ListNode reverse(ListNode head, int k) {
 }
 ```
 
-## 翻转单链表区间[m, n]
+# 翻转单链表区间[m, n]
 
 [LC 92 Reverse Linked List II](https://leetcode.com/problems/reverse-linked-list-ii/description/)
 
-### 迭代思想
+## 迭代思想
 
 我们已经知道翻转整个单链表的方法。如果翻转单链表区间[m, n]，比较容易想的方法就是找到开始需要翻转的节点 start 和 结束节点 end。然后翻转链表从 start 到 end。这种方法用了迭代的思路。
 
@@ -230,7 +167,7 @@ class Solution {
 }
 ```
 
-### 递归思想
+## 递归思想
 
 我们已经知道了如何使用递归思想翻转单链表的前k个节点。同样的，这种思想也可以使用在翻转单链表区间[m, n]。 
 
@@ -281,6 +218,56 @@ class Solution {
 }
 ```
 
-## k个一组翻转单链表
+# k个一组翻转单链表
 
 [LC 25 Reverse Nodes in k-Group](https://leetcode.com/problems/reverse-nodes-in-k-group/)
+
+Given a linked list, reverse the nodes of the list k at a time and return the modified list.
+
+![Flowcharts - Page 1.jpeg](https://s3-us-west-2.amazonaws.com/secure.notion-static.com/5c099ae5-ff0e-49dc-952b-576113f44653/Flowcharts_-_Page_1.jpeg)
+
+Reverse groups of nodes of size k
+
+![Flowcharts.jpeg](https://s3-us-west-2.amazonaws.com/secure.notion-static.com/51a4346f-c0a8-4f87-ac70-12e4909edd56/Flowcharts.jpeg)
+
+**Algorithm:**
+
+Linked list has recursion property, that reverse groups of size k from head has same process as that reverse groups of size k from “next head by skipping k nodes” .
+
+![Flowcharts (4).jpeg](https://s3-us-west-2.amazonaws.com/secure.notion-static.com/fbcc4cd5-85e2-44ce-9970-72de0a942892/Flowcharts_(4).jpeg)
+
+1. split the original list into segments of size k.
+    
+    ![Flowcharts (2).jpeg](https://s3-us-west-2.amazonaws.com/secure.notion-static.com/cdb029e6-fea9-4f0f-8226-ee2fd6737b45/Flowcharts_(2).jpeg)
+    
+2. Given the head, the next recursion’s head will be the head of the second segment.
+    
+    Our goal in this step is to find the next head of recursion, and pass it to the reverseKGroup function.
+    
+    We start from the original head, and count k steps to find the end. The end node is the next head for recursion, also the head of the second segment.
+    
+    ```java
+    ListNode start, end;
+    start = end = head;
+    for (int i = 0; i < k; i++) {
+    	end = end.next;
+    }
+    ```
+    
+    Define the function **ListNode reverseKGroup(ListNode head, int k);** to reverse nodes of group k and return a head.
+    
+    The next head that will be passed to the recursion call is the end.
+    
+3. Let’s look back what we have done. 
+    1. We found the start and end node.
+    2. We passed the end node to the next recursion call and get a head.
+4. Assume that the recursion call “reverseKGroup” did the job for us, which is reversing a linked list k group and return a head.
+    
+    ![Flowcharts (5).jpeg](https://s3-us-west-2.amazonaws.com/secure.notion-static.com/69ad2cdb-8bdd-4f2b-ab0b-b304091a5e91/Flowcharts_(5).jpeg)
+    
+5. The next step is to reverse the first segment 1 → 2, and link it to the reversed linked list processed by the original function.
+    
+    ![Flowcharts (6).jpeg](https://s3-us-west-2.amazonaws.com/secure.notion-static.com/d424fad5-2831-412a-bb7e-e64330b7f658/Flowcharts_(6).jpeg)
+    
+
+**Code**
