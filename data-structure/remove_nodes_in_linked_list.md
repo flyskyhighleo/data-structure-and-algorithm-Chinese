@@ -14,7 +14,7 @@ At the end of this article, we introduces **************monotonic stack*********
 
 To delete a node in a linked list, we need to find the predecessor and successor of the target nodes, then make the predecessor point to the successor.
 
-![Screenshot 2023-08-27 at 1.10.24 PM.png](https://s3-us-west-2.amazonaws.com/secure.notion-static.com/e9e69489-36a1-4d1a-ada8-dcb2a6c9d330/Screenshot_2023-08-27_at_1.10.24_PM.png)
+![Screenshot 2023-08-27 at 1 10 24 PM](https://github.com/flyskyhighleo/data-structure-algorithm/assets/142456739/32359a6c-4b70-415f-a2f8-540921a664ca)
 
 ```java
 class Solution {
@@ -49,10 +49,8 @@ ListNode remove(ListNode head, int val);
 ```
 
 Assume that the removal function does the job for us. It removes all target nodes and return a new head.
-
-![Screenshot 2023-08-21 at 10.49.40 PM.png](https://s3-us-west-2.amazonaws.com/secure.notion-static.com/e899230a-e12b-4dfd-882f-341001066c24/Screenshot_2023-08-21_at_10.49.40_PM.png)
-
-![Screenshot 2023-08-21 at 10.57.54 PM.png](https://s3-us-west-2.amazonaws.com/secure.notion-static.com/d1dfcb65-6731-4568-b4bc-81f553ac1882/Screenshot_2023-08-21_at_10.57.54_PM.png)
+![Screenshot 2023-08-21 at 10 49 40 PM](https://github.com/flyskyhighleo/data-structure-algorithm/assets/142456739/7677efa0-2744-4410-b877-e6edfdb301dd)
+![Screenshot 2023-08-21 at 10 57 54 PM](https://github.com/flyskyhighleo/data-structure-algorithm/assets/142456739/5c5f9231-5df1-46a6-9062-695abc8ac50c)
 
 Now we need to handle the head. We link the head to the new head returned by remove function.
 
@@ -95,7 +93,8 @@ return count.get(head.val) == 1 ? head : newHead;
 
 ## Delete Node in a Linked List
 
-[LC 237 Delete Node in a Linked List](https://leetcode.com/problems/delete-node-in-a-linked-list/description/)
+![Screenshot 2023-08-27 at 2 09 13 PM](https://github.com/flyskyhighleo/data-structure-algorithm/assets/142456739/39df277f-ca3b-477b-bb76-965281d3dad3)
+
 
 This problem is extension of [LC 203](https://leetcode.com/problems/remove-linked-list-elements/).
 
