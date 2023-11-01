@@ -1,2 +1,0 @@
-# Two Pointers In Array
-
