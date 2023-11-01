@@ -2,7 +2,7 @@
 
 [linked-list](data-structure-and-algorithm/linked-list/ "mention")
 
-[two-pointers-in-array.md](data-structure-and-algorithm/two-pointers-in-array.md "mention")
+[two-pointers-in-array](readme/two-pointers-in-array/ "mention")
 
 [qian-zhui-he-shu-zu.md](data-structure-and-algorithm/qian-zhui-he-shu-zu.md "mention")
 
