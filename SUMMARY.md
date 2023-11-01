@@ -4,7 +4,7 @@
   * [Linked List](data-structure-and-algorithm/linked-list/README.md)
     * [Remove Elements in Linked List](data-structure-and-algorithm/linked-list/remove-elements-in-linked-list.md)
     * [Reverse A Linked List](data-structure-and-algorithm/linked-list/reverse-a-linked-list.md)
-    * [Two Pointers in Linked List](data-structure-and-algorithm/linked-list/two-pointers-in-linked-list.md)
+    * [双指针](data-structure-and-algorithm/linked-list/two-pointers-in-linked-list.md)
     * [Design With Linked List](data-structure-and-algorithm/linked-list/design-with-linked-list.md)
   * [Two Pointers in Array](data-structure-and-algorithm/two-pointers-in-array.md)
   * [前缀和数组](data-structure-and-algorithm/qian-zhui-he-shu-zu.md)
